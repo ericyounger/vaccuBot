@@ -5,8 +5,6 @@ import time
 import atexit
 import keyboard
 
-
-
 class MotorControl(object):
     
     def __init__(self):
@@ -27,14 +25,6 @@ class MotorControl(object):
         self.motorA.run(Adafruit_MotorHAT.RELEASE)
         self.motorB.run(Adafruit_MotorHAT.RELEASE)
         
-        
-  
-        
-
-
-
-   
-        
     def turnOffMotors(self):
         print("Turning off motors")
         self.mh.getMotor(1).run(Adafruit_MotorHAT.RELEASE)
@@ -42,10 +32,6 @@ class MotorControl(object):
         self.mh.getMotor(3).run(Adafruit_MotorHAT.RELEASE)
         self.mh.getMotor(4).run(Adafruit_MotorHAT.RELEASE)
 
-        
-
-
-    
     def driveForward(self):
         print("Driving forward")
         
@@ -55,8 +41,6 @@ class MotorControl(object):
         self.motorA.setSpeed(200)
         self.motorB.setSpeed(200)
 
-    
-
     def driveRevers(self):
         print("Reversing")
         self.motorA.run(Adafruit_MotorHAT.BACKWARD)
@@ -64,7 +48,6 @@ class MotorControl(object):
         
         self.motorA.setSpeed(200)
         self.motorB.setSpeed(200)
-
 
     def pivotLeft(self):
         print("pivoting left")
@@ -86,13 +69,6 @@ class MotorControl(object):
         self.motorA.setSpeed(0)
         self.motorB.setSpeed(0)
     
-
-
-
-
-    
-
-
 vaccuBot = MotorControl()
 
 
