@@ -5,7 +5,7 @@ A long term project of mine, where i am building a vaccum robot.
 
 Parts used so far:
 - Raspberry Pi 3 b+
-- Ebay, motorboard
+- Ebay motorboard
 - 12v battery 6800mAh
 - Bracket with belt tracks connected to it
 - 2x 12v dc motors
