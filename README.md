@@ -23,7 +23,7 @@ Status so far:
 
 Planning to implement:
 - [ ] Ultrasonic sensors, distance measuring, collision avoidance
-- [ ] Vaccum cleaner, by building it with a computer fan and tubes
+- [ ] Vaccum cleaner, building it with a computer fan and tubes
 - [ ] Room mapping to clean more efficiently
 - [ ] Buttons to select clean mode
 - [ ] OLED display to show status
