@@ -8,6 +8,8 @@ import keyboard
 class MotorControl(object):
     
     def __init__(self):
+        self.speed = 100
+
         #setup motors, and communication with motorHAT
         # create a default object, no changes to I2C address or frequency
         self.mh = Adafruit_MotorHAT(addr=0x60)
@@ -17,8 +19,8 @@ class MotorControl(object):
         self.motorB = self.mh.getMotor(2)
         
         # set the speed to start, from 0 (off) to 255 (max speed)
-        self.motorA.setSpeed(150)
-        self.motorB.setSpeed(150)
+        self.motorA.setSpeed(self.speed)
+        self.motorB.setSpeed(self.speed)
         self.motorA.run(Adafruit_MotorHAT.FORWARD)
         self.motorB.run(Adafruit_MotorHAT.FORWARD)
         # turn on motor
@@ -34,40 +36,46 @@ class MotorControl(object):
 
     def driveForward(self):
         print("Driving forward")
-        
         self.motorA.run(Adafruit_MotorHAT.FORWARD)
         self.motorB.run(Adafruit_MotorHAT.FORWARD)
 
-        self.motorA.setSpeed(200)
-        self.motorB.setSpeed(200)
+        self.motorA.setSpeed(self.speed)
+        self.motorB.setSpeed(self.speed)
 
     def driveRevers(self):
         print("Reversing")
         self.motorA.run(Adafruit_MotorHAT.BACKWARD)
         self.motorB.run(Adafruit_MotorHAT.BACKWARD)
         
-        self.motorA.setSpeed(200)
-        self.motorB.setSpeed(200)
+        self.motorA.setSpeed(self.speed)
+        self.motorB.setSpeed(self.speed)
 
     def pivotLeft(self):
         print("pivoting left")
         self.motorA.run(Adafruit_MotorHAT.FORWARD)
         self.motorB.run(Adafruit_MotorHAT.BACKWARD)
         
-        self.motorA.setSpeed(200)
-        self.motorB.setSpeed(100)
+        self.motorA.setSpeed(self.speed)
+        self.motorB.setSpeed(self.speed/2)
 
     def pivotRight(self):
         print("pivoting right")
         self.motorA.run(Adafruit_MotorHAT.BACKWARD)
         self.motorB.run(Adafruit_MotorHAT.FORWARD)
         
-        self.motorA.setSpeed(100)
-        self.motorB.setSpeed(200)
+        self.motorA.setSpeed(self.speed/2)
+        self.motorB.setSpeed(self.speed)
     
     def stop(self):
-        self.motorA.setSpeed(0)
-        self.motorB.setSpeed(0)
+        self.speed = 0
+        self.motorA.setSpeed(self.speed)
+        self.motorB.setSpeed(self.speed)
+
+    def speedUp(self):
+        self.speed += 5
+    
+    def slowDown(self):
+        self.speed -= 5
     
 vaccuBot = MotorControl()
 
@@ -84,5 +92,9 @@ while True:
         vaccuBot.pivotLeft()
     if(keyboard.is_pressed("d")):
         vaccuBot.pivotRight()
-    if(keyboard.is_pressed(",")):
+    if(keyboard.is_pressed("l")):
         vaccuBot.stop()
+    if(keyboard.is_pressed(",")):
+       vaccuBot.speedUp()
+    if(keyboard.is_pressed(".")):
+        vaccuBot.slowDown()
