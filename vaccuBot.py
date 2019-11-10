@@ -27,6 +27,7 @@ class MotorControl(object):
         self.motorA.run(Adafruit_MotorHAT.RELEASE)
         self.motorB.run(Adafruit_MotorHAT.RELEASE)
         
+        
     def turnOffMotors(self):
         print("Turning off motors")
         self.mh.getMotor(1).run(Adafruit_MotorHAT.RELEASE)
@@ -67,20 +68,23 @@ class MotorControl(object):
         self.motorB.setSpeed(self.speed)
     
     def stop(self):
+        print("Stopping")
         self.speed = 0
         self.motorA.setSpeed(self.speed)
         self.motorB.setSpeed(self.speed)
 
     def speedUp(self):
+        print("Speeding up")
         self.speed += 5
     
     def slowDown(self):
+        print("Slowing down")
         self.speed -= 5
     
 vaccuBot = MotorControl()
 
 
-# recommended for auto-disabling motors on shutdown!
+# auto-disables motors on shutdown!
 atexit.register(vaccuBot.turnOffMotors)
 
 while True:
