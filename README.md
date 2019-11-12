@@ -17,7 +17,7 @@ Status so far:
 - [x] Add a basic keylistener for testing
 - [x] Started on design of 3d case
 - [x] Got SSH, and alias setup
-- [ ] Mount battery and RPI to bracket
+- [ ] Mount 3d case, battery and RPI to bracket
 - [ ] fix sending keyevents over ssh
 
 
@@ -29,7 +29,7 @@ Planning to implement:
 - [ ] OLED display to show status
 - [ ] Controlling robot with JoyStick and/or through web api
 - [ ] Add a camera, which can recognize people through Facial recognition
-- [ ] design a 3D case, and print it
+- [x] design a 3D case, and print it
 
 
 
