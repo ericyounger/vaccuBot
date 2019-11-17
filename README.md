@@ -17,7 +17,7 @@ Status so far:
 - [x] Add a basic keylistener for testing
 - [x] Started on design of 3d case
 - [x] Got SSH, and alias setup
-- [ ] Mount 3d case, battery and RPI to bracket
+- [x] Mount 3d case, battery and RPI to bracket
 - [ ] fix sending keyevents over ssh
 
 
@@ -36,4 +36,7 @@ Planning to implement:
 ![IMG_2415](https://user-images.githubusercontent.com/44582953/68440176-710e3700-01ca-11ea-8e0d-dcb181dacb4f.JPG)
 
 ![vaccubot v1](https://user-images.githubusercontent.com/44582953/68625091-a1124e80-04d8-11ea-9186-7c68e1d492e8.png)
+
+![IMG_1253](https://user-images.githubusercontent.com/44582953/69009724-7ef55200-0958-11ea-8e17-5cdaa5094b02.JPG)
+
 
