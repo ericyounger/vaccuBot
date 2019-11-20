@@ -5,6 +5,13 @@ import time
 import atexit
 import pygame
 
+
+# sets the window title
+pygame.display.set_caption(u'Keyboard events')
+
+# sets the window size
+pygame.display.set_mode((400, 400))
+
 class MotorControl(object):
     
     def __init__(self):
