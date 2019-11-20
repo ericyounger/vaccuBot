@@ -5,6 +5,19 @@ import time
 import atexit
 import keyboard
 
+import pygame
+import socket
+
+
+# initializes Pygame
+pygame.init()
+
+# sets the window title
+pygame.display.set_caption(u'Keyboard events')
+
+# sets the window size
+pygame.display.set_mode((400, 400))
+
 class MotorControl(object):
     
     def __init__(self):
@@ -87,18 +100,32 @@ vaccuBot = MotorControl()
 # auto-disables motors on shutdown!
 atexit.register(vaccuBot.turnOffMotors)
 
+
+
+
 while True:
-    if(keyboard.is_pressed("w")):
-       vaccuBot.driveForward()
-    if(keyboard.is_pressed("s")):
-        vaccuBot.driveRevers()
-    if(keyboard.is_pressed("a")):
-        vaccuBot.pivotLeft()
-    if(keyboard.is_pressed("d")):
-        vaccuBot.pivotRight()
-    if(keyboard.is_pressed("l")):
-        vaccuBot.stop()
-    if(keyboard.is_pressed(",")):
-       vaccuBot.speedUp()
-    if(keyboard.is_pressed(".")):
-        vaccuBot.slowDown()
+    # gets a single event from the event queue
+    event = pygame.event.wait()
+
+    if event.type == pygame.QUIT:
+        break
+
+    # captures the 'KEYDOWN' and 'KEYUP' events
+    if event.type in (pygame.KEYDOWN, pygame.KEYUP):
+        # gets the key name
+        key_name = pygame.key.name(event.key)
+        # converts to uppercase the key name
+        key_name = key_name.upper()
+
+        if event.type == pygame.KEYDOWN:
+            if(key_name == 'W'):
+                vaccuBot.driveForward()
+            elif(key_name == 'A'):
+                vaccuBot.pivotLeft()
+            elif(key_name == 'S'):
+                vaccuBot.driveRevers()
+            elif(key_name == 'D'):
+                vaccuBot.pivotRight()
+            elif(key_name == 'L'):
+                vaccuBot.stop()
+pygame.quit()
