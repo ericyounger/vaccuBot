@@ -12,7 +12,7 @@ pygame.display.set_caption(u'Keyboard events')
 # sets the window size
 pygame.display.set_mode((400, 400))
 
-HOST = '127.0.0.1'  # The server's hostname or IP address
+HOST = '192.168.2.189'  # The server's hostname or IP address
 PORT = 65433        # The port used by the server
 
 
