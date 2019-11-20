@@ -13,7 +13,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     with conn:
         print('Connected client on', addr)
         while True:
-            data = conn.recv(4096)
+            data = conn.recv(1)
 
             if data.decode() == "driveForward":
                 print("driving forward")
