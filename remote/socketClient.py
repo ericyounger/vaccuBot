@@ -36,7 +36,7 @@ while True:
 
         if event.type == pygame.KEYDOWN:
             if(key_name == 'W'):
-                s.send('w'.encode())
+                s.send("W")
                 print('W')
             elif(key_name == 'A'):
                 pass
