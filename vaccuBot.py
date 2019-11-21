@@ -64,14 +64,14 @@ class MotorControl(object):
         self.motorB.run(Adafruit_MotorHAT.BACKWARD)
         
         self.motorA.setSpeed(self.speed)
-        self.motorB.setSpeed(self.speed/2)
+        self.motorB.setSpeed(int(self.speed/2))
 
     def pivotRight(self):
         print("pivoting right")
         self.motorA.run(Adafruit_MotorHAT.BACKWARD)
         self.motorB.run(Adafruit_MotorHAT.FORWARD)
         
-        self.motorA.setSpeed(self.speed/2)
+        self.motorA.setSpeed(int(self.speed/2))
         self.motorB.setSpeed(self.speed)
     
     def stop(self):
