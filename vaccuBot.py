@@ -64,14 +64,14 @@ class MotorControl(object):
         self.motorB.run(Adafruit_MotorHAT.BACKWARD)
         
         self.motorA.setSpeed(self.speed)
-        self.motorB.setSpeed(int(self.speed/2))
+        self.motorB.setSpeed(self.speed)
 
     def pivotRight(self):
         print("pivoting right")
         self.motorA.run(Adafruit_MotorHAT.BACKWARD)
         self.motorB.run(Adafruit_MotorHAT.FORWARD)
         
-        self.motorA.setSpeed(int(self.speed/2))
+        self.motorA.setSpeed(self.speed)
         self.motorB.setSpeed(self.speed)
     
     def stop(self):
@@ -122,5 +122,9 @@ while True:
                 vaccuBot.pivotRight()
             elif(key_name == 'L'):
                 vaccuBot.stop()
+            elif(key_name == 'N'):
+                vaccuBot.speedUp()
+            elif(key_name == 'M'):
+                vaccuBot.slowDown()
 pygame.quit()
 
