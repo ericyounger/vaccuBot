@@ -18,7 +18,8 @@ Status so far:
 - [x] Started on design of 3d case
 - [x] Got SSH, and alias setup
 - [x] Mount 3d case, battery and RPI to bracket
-- [ ] fix sending keyevents over ssh
+- [x] Remote control over VNC
+- [ ] Driving corrections, straight line test
 
 
 Planning to implement:
