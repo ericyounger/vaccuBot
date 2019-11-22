@@ -17,12 +17,12 @@ Status so far:
 - [x] Add a basic keylistener for testing
 - [x] Started on design of 3d case
 - [x] Got SSH, and alias setup
+- [x] design a 3D case, and print it
 - [x] Mount 3d case, battery and RPI to bracket
 - [x] Remote control over VNC
-- [ ] Driving corrections, straight line test
-
 
 Planning to implement:
+- [ ] Driving corrections, straight line test
 - [ ] Ultrasonic sensors, distance measuring, collision avoidance
 - [ ] Vaccum cleaner, building it with a computer fan and tubes
 - [ ] Room mapping to clean more efficiently
@@ -30,7 +30,7 @@ Planning to implement:
 - [ ] OLED display to show status
 - [ ] Controlling robot with JoyStick and/or through web api
 - [ ] Add a camera, which can recognize people through Facial recognition
-- [x] design a 3D case, and print it
+- [ ] Surface detection, power increase on carpet, power decrease on hardwood floor.
 
 
 
