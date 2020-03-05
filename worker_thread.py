@@ -1,5 +1,5 @@
 import threading
-
+from random import randint
 import time
 
 
@@ -18,8 +18,10 @@ class Worker():
          
             if(len(self.tasks) == 0):
                 self.cv.wait()
-            
-            localTask = self.tasks.pop(0)
+                
+            #print("hello from thread", threading.get_ident()) this shows that threads are working
+            if(len(self.tasks) != 0):
+                localTask = self.tasks.pop(0)
 
             self.lock.release()
             localTask()
@@ -42,12 +44,11 @@ class Worker():
     def run(self):
         for x in range(0, self.noOfThreads):
             self.threads.append(threading.Thread(target=self.acquire_job))
-            print("added thread", x)
+        print("added", self.noOfThreads, "threads")
 
         
     def stop(self):
         self.runThreads = False
-
             
 
 
@@ -56,16 +57,20 @@ class Worker():
 
 
 def test():
-    print("Lol")
+
+    print("Random distance ", randint(2,40),"cm")
 
 if __name__ == "__main__":
     workers = Worker(4)
     workers.run()
     workers.start()
-    workers.post(test)
-    time.sleep(2)
-    workers.stop()
-    workers.post(test)
+    
+    #Testing breakpoints in worker system
+    for x in range(0, 100):
+        workers.post(test)
+        if x > 50:
+            time.sleep(1)
+   
 
     
 
