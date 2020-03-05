@@ -11,6 +11,7 @@ class Worker():
         self.lock = threading.Lock()
         self.cv = threading.Condition(self.lock)
         self.runThreads = True;
+        self.__create()
        
     def acquire_job(self):
         while(self.runThreads):
@@ -41,7 +42,7 @@ class Worker():
             self.lock.release()
         
 
-    def run(self):
+    def __create(self):
         for x in range(0, self.noOfThreads):
             self.threads.append(threading.Thread(target=self.acquire_job))
         print("added", self.noOfThreads, "threads")
@@ -62,7 +63,6 @@ def test():
 
 if __name__ == "__main__":
     workers = Worker(4)
-    workers.run()
     workers.start()
     
     #Testing breakpoints in worker system
