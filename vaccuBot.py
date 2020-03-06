@@ -25,9 +25,7 @@ if __name__ == "__main__":
 
     while True:
         print("calculating distance")
-        
-        print(skynet.proximityFront)
         time.sleep(1)
-        workers.post(print(skynet.sensors.distance))
+        workers.post(skynet.sensors.distance)
 
 
