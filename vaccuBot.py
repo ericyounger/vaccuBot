@@ -1,11 +1,13 @@
 
-import MotorControl
-import Sensors
-
+from MotorControl import MotorControl
+from distanceSense import Sensors
+import atexit
+import time
 
 class VaccuBot:
 
     def __init__(self):
+        self.proximityFront = 0
         self.engine = MotorControl()
         self.sensors = Sensors()
 
@@ -16,7 +18,10 @@ if __name__ == "__main__":
     # auto-disables motors on shutdown!
     atexit.register(skynet.engine.turnOffMotors)
 
-
-    skynet.sensors.distance()
+    while True:
+        print("calculating distance")
+        skynet.proximityFront = skynet.sensors.distance()
+        print(skynet.proximityFront)
+        time.sleep(1)
 
 
