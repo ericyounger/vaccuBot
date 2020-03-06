@@ -20,10 +20,10 @@ Status so far:
 - [x] design a 3D case, and print it
 - [x] Mount 3d case, battery and RPI to bracket
 - [x] Remote control over VNC
+- [x] Ultrasonic sensors, distance measuring, collision avoidance
 
 Planning to implement:
 - [ ] Driving corrections, straight line test
-- [ ] Ultrasonic sensors, distance measuring, collision avoidance
 - [ ] Vaccum cleaner, building it with a computer fan and tubes
 - [ ] Room mapping to clean more efficiently
 - [ ] Buttons to select clean mode
