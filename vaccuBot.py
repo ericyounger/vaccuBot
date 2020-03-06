@@ -28,6 +28,7 @@ if __name__ == "__main__":
     print("calculating distance")
     time.sleep(1)
     workers.post(skynet.sensors.distance)
+    workers.post(skynet.sensors.distance)
 
     workers.post(skynet.engine.driveForward)
     time.sleep(2)

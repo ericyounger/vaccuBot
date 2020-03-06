@@ -25,7 +25,7 @@ class Sensors:
             distance = duration / 0.000058
 
             gpio.cleanup()
-            print(distance)
+            print(distance, "cm")
             #return distance
 
         except:
