@@ -1,5 +1,6 @@
 import RPi.GPIO as gpio
 import time
+from vaccuBot import VaccuBot
 
 
 class Sensors:
@@ -25,7 +26,8 @@ class Sensors:
             distance = duration / 0.000058
 
             gpio.cleanup()
-            print(distance, "cm")
+            print(round(distance,2), "cm")
+            VaccuBot.proximityFront = round(distance, 2)
             #return distance
 
         except:

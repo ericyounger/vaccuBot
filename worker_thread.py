@@ -15,31 +15,32 @@ class Worker():
        
     def acquire_job(self):
         while(self.runThreads):
-            self.lock.acquire()
-         
-            if(len(self.tasks) == 0):
-                self.cv.wait()
-                
-            #print("hello from thread", threading.get_ident()) this shows that threads are working
-            if(len(self.tasks) != 0):
-                localTask = self.tasks.pop(0)
+            with self.lock: # might not work with release there also
+                if(len(self.tasks) == 0):
+                    self.cv.wait()
+                    
+                #print("hello from thread", threading.get_ident()) this shows that threads are working
+                if(len(self.tasks) != 0):
+                    localTask = self.tasks.pop(0)
+                    self.lock.release()
+                    localTask()
+                else: 
+                    self.lock.release()
 
-            self.lock.release()
-            localTask()
+            
 
     def start(self):
         for i in range(0, len(self.threads)):
             self.threads[i].start()
 
     def post(self, task):
-        self.lock.acquire()
-        self.tasks.append(task)
-        try:
-            self.cv.notify(1)
-        except RuntimeError:
-            print("lock not aqquired")
-        finally: 
-            self.lock.release()
+        with self.lock: #run block of code and the releases lock
+            self.tasks.append(task)
+            try:
+                self.cv.notify(1)
+            except RuntimeError:
+                print("lock not aqquired") #should never receive this exception hopefully
+          
         
 
     def __create(self):

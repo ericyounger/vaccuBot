@@ -5,10 +5,12 @@ import atexit
 import time
 from worker_thread import Worker
 
-class VaccuBot:
 
+class VaccuBot:
+    proximityFront = 0
+    
     def __init__(self):
-        self.proximityFront = 0
+        
         self.engine = MotorControl()
         self.sensors = Sensors()
 
