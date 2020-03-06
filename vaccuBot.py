@@ -22,10 +22,16 @@ if __name__ == "__main__":
     workers = Worker(4)
     workers.start()
 
+    
 
-    while True:
-        print("calculating distance")
-        time.sleep(1)
-        workers.post(skynet.sensors.distance)
+
+    print("calculating distance")
+    time.sleep(1)
+    workers.post(skynet.sensors.distance)
+
+    workers.post(skynet.engine.driveForward)
+    time.sleep(2)
+    workers.post(skynet.engine.turnOffMotors)
+
 
 

@@ -74,10 +74,14 @@ class MotorControl(object):
     def speedUp(self):
         print("Speeding up")
         self.speed += 5
+        self.motorA.setSpeed(self.speed)
+        self.motorB.setSpeed(self.speed)
     
     def slowDown(self):
         print("Slowing down")
         self.speed -= 5
+        self.motorA.setSpeed(self.speed)
+        self.motorB.setSpeed(self.speed)
     
 
 
