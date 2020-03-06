@@ -85,5 +85,3 @@ class MotorControl(object):
 
 
 
-# auto-disables motors on shutdown!
-atexit.register(vaccuBot.turnOffMotors)

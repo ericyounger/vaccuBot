@@ -13,5 +13,10 @@ class VaccuBot:
 if __name__ == "__main__":
     skynet = VaccuBot()
 
+    # auto-disables motors on shutdown!
+    atexit.register(skynet.engine.turnOffMotors)
+
+
     skynet.sensors.distance()
+
 
