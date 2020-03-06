@@ -57,25 +57,6 @@ class Worker():
 
 
 
-def test():
-    print("Random distance ", randint(2,40),"cm")
-
-def test2():
-    print("Random message, other function")
-
-if __name__ == "__main__":
-    workers = Worker(4)
-    workers.start()
-    
-    #Testing breakpoints in worker system
-    for x in range(0, 100):
-        workers.post(test)
-        if x > 50:
-            time.sleep(1)
-        if x%2 == 0:
-            workers.post(test2)
-   
-
     
 
     

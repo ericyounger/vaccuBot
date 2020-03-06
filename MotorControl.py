@@ -3,9 +3,6 @@ from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor
 
 import time
 
-
-
-
 class MotorControl(object):
     
     def __init__(self):
