@@ -1,0 +1,3 @@
+
+class SensorReadings:
+    global proximityFront

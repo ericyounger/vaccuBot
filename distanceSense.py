@@ -1,38 +1,48 @@
 import RPi.GPIO as gpio
 import time
-from vaccuBot import VaccuBot
+import SensorReadings
+import threading
 
 
 class Sensors:
+    
+    def __init__(self):
+        self.runThreads = True
+        self.proximitySensor = threading.Thread(target=self.distance)
+        self.proximitySensor.start()
+        SensorReadings.proximityFront = 404.00 #start value as in not found
+    
+    def killThreads(self):
+        self.runThreads = False
+        self.proximitySensor.join()
 
     def distance(self):
-        TRIG = 12
-        ECHO = 16
-        try:
-            gpio.setmode(gpio.BOARD) # OR BCM depending on layout chosen
-            gpio.setup(TRIG, gpio.OUT)
-            gpio.setup(ECHO, gpio.IN)
-            gpio.output(TRIG, False)
+        while self.runThreads:
+            TRIG = 12
+            ECHO = 16
+            try:
+                gpio.setmode(gpio.BOARD) # OR BCM depending on layout chosen
+                gpio.setup(TRIG, gpio.OUT)
+                gpio.setup(ECHO, gpio.IN)
+                gpio.output(TRIG, False)
 
-            while gpio.input(ECHO) == 0:
-                start = time.time()
+                while gpio.input(ECHO) == 0:
+                    start = time.time()
 
-            while gpio.input(ECHO) == 1:
-                stop = time.time()
+                while gpio.input(ECHO) == 1:
+                    stop = time.time()
 
-            duration = stop - start
+                duration = stop - start
+                distance = duration / 0.000058
 
-        
-            distance = duration / 0.000058
+                gpio.cleanup()
+                SensorReadings.proximityFront = (round(distance,2))
+           
 
-            gpio.cleanup()
-            print(round(distance,2), "cm")
-            VaccuBot.proximityFront = round(distance, 2)
-            #return distance
-
-        except:
-            distance = 100
-            gpio.cleanup()
-            return distance
+            except:
+                distance = 100
+                gpio.cleanup()
+                return distance
+                
 
 

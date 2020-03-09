@@ -41,7 +41,7 @@ class MotorControl(object):
         self.motorA.setSpeed(self.speed)
         self.motorB.setSpeed(self.speed)
 
-    def driveRevers(self):
+    def driveReverse(self):
         print("Reversing")
         self.motorA.run(Adafruit_MotorHAT.BACKWARD)
         self.motorB.run(Adafruit_MotorHAT.BACKWARD)
