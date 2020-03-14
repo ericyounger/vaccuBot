@@ -21,15 +21,15 @@ Status so far:
 - [x] Mount 3d case, battery and RPI to bracket
 - [x] Remote control over VNC
 - [x] Ultrasonic sensors, distance measuring, collision avoidance
+- [ ] Create vaccum cleaner
+- [ ] 3D-model vaccum parts
 
-Planning to implement:
-- [ ] Driving corrections, straight line test
-- [ ] Vaccum cleaner, building it with a computer fan and tubes
+May implement this later on:
+
 - [ ] Room mapping to clean more efficiently
 - [ ] Buttons to select clean mode
 - [ ] OLED display to show status
 - [ ] Controlling robot with JoyStick and/or through web api
-- [ ] Add a camera, which can recognize people through Facial recognition
 - [ ] Surface detection, power increase on carpet, power decrease on hardwood floor.
 
 
