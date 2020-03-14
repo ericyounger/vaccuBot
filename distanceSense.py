@@ -15,11 +15,16 @@ class Sensors:
     def killThreads(self):
         self.runThreads = False
         self.proximitySensor.join()
+        gpio.cleanup()
+
+        
 
     def distance(self):
+        TRIG = 12
+        ECHO = 16
+        
         while self.runThreads:
-            TRIG = 12
-            ECHO = 16
+        
             try:
                 gpio.setmode(gpio.BOARD) # OR BCM depending on layout chosen
                 gpio.setup(TRIG, gpio.OUT)
@@ -37,6 +42,7 @@ class Sensors:
 
                 gpio.cleanup()
                 SensorReadings.proximityFront = (round(distance,2))
+                time.sleep(0.02)
            
 
             except:

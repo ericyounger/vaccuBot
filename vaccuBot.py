@@ -29,8 +29,10 @@ if __name__ == "__main__":
 
     workers = Worker(4)
     workers.start()
-    skynet.engine.turnOffMotors()
-    #skynet.engine.driveForward()
+    
+    #skynet.engine.turnOffMotors() should put this as killswitch
+    
+    skynet.engine.driveForward()
     while True:
         if(SensorReadings.proximityFront < 20):
             print(SensorReadings.proximityFront)
